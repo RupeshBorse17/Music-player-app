@@ -24,10 +24,17 @@ const PORT = process.env.PORT || 5001;
 console.log("MAILTRAP HOST:", process.env.MAILTRAP_HOST);
 console.log("MAILTRAP PORT:", process.env.MAILTRAP_PORT);
 
-const app = express();
+// const app = express();
+// app.use(cors({
+//     origin:"http://localhost:5173",
+//     credentials:true,
+// }));
 app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true,
+  origin: [
+    "http://localhost:5173",
+    "https://music-player-app-f9sz-7vhe5i5nr-rupesh-borses-projects.vercel.app"
+  ],
+  credentials: true
 }));
 
 app.use(express.json());
